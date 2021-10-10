@@ -6,10 +6,12 @@ This mod adds new items such as the "World Shakers" which are like pickaxes, but
 
 ## Building
 
-> ### **Prerequisites**:
+> ### **Dependencies**:
 >
 > Java 16 or greater
+> Fabric API
 
 1. Download the source code
 2. Unzip the files if needed and navigate to the directory with this README.md
 3. Open a terminal and type in `./gradlew build` on mac or linux, or `.\gradlew.bat build` on windows
+4. Navigate to the `build/libs` directory and there should be 2 jars, one with `-dev` towards the end, and one without, put the one without in your minecraft mods directory
