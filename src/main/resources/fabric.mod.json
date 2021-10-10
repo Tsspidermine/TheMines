@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "themines",
   "version": "${version}",
 
   "name": "The Mines",
@@ -8,6 +8,11 @@
   "authors": [
     "tsspidermine"
   ],
+  "contact": {
+    "homepage": "https://github.com/Tsspidermine/TheMines",
+    "sources": "https://github.com/Tsspidermine/TheMines.git",
+    "issues": "https://github.com/Tsspidermine/TheMines/issues"
+  },
 
   "license": "GPL-3.0",
   "icon": "assets/themines/icon.png",
