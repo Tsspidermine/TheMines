@@ -3,9 +3,7 @@ package me.tsspidermine.TheMines.item;
 import draylar.magna.api.BlockProcessor;
 import draylar.magna.item.HammerItem;
 import me.tsspidermine.TheMines.TheMines;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
@@ -24,7 +22,6 @@ public class CrusherItem extends HammerItem {
     private int breakRadius = 1;
     private int defaultBreakRadius;
 
-    PlayerEntity player = MinecraftClient.getInstance().player;
 
     public CrusherItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings, int breakRadius) {
         super(toolMaterial, attackDamage, attackSpeed, settings, breakRadius);
@@ -65,6 +62,9 @@ public class CrusherItem extends HammerItem {
 
     @Override
     public boolean renderOutline(World world, BlockHitResult ray, PlayerEntity player, ItemStack stack){
+        if(player == null)
+            return true;
+
         if(EnchantmentHelper.getLevel(TheMines.CRUNCHENCHANTMENT, player.getMainHandStack()) > 0){
             breakRadius = EnchantmentHelper.getLevel(TheMines.CRUNCHENCHANTMENT, player.getMainHandStack()) + 1;
         } else{
