@@ -8,7 +8,7 @@ import net.minecraft.entity.EquipmentSlot;
 public class AutosmeltEnchantment extends Enchantment {
 
     public AutosmeltEnchantment() {
-        super(Rarity.UNCOMMON, EnchantmentTarget.DIGGER, new EquipmentSlot[] {EquipmentSlot.MAINHAND});
+        super(Rarity.RARE, EnchantmentTarget.DIGGER, new EquipmentSlot[] {EquipmentSlot.MAINHAND});
     }
 
     @Override

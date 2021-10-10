@@ -2,7 +2,8 @@ package me.tsspidermine.TheMines;
 
 import draylar.magna.item.HammerItem;
 import me.tsspidermine.TheMines.enchantments.AutosmeltEnchantment;
-import me.tsspidermine.TheMines.item.AutosmeltItem;
+import me.tsspidermine.TheMines.enchantments.CrunchEnchantment;
+import me.tsspidermine.TheMines.item.CrusherItem;
 import me.tsspidermine.TheMines.materials.DiamondWorldShakerMaterial;
 import me.tsspidermine.TheMines.materials.IronWorldShakerMaterial;
 import me.tsspidermine.TheMines.materials.StoneWorldShakerMaterial;
@@ -48,31 +49,33 @@ public class TheMines implements ModInitializer {
 					new FabricItemSettings().group(TheMines.TOOLS_ITEM_GROUP).maxCount(1)
 			)
 	);
-	public static final HammerItem IRON_WORLD_SHAKER = Registry.register(
+	public static final CrusherItem IRON_WORLD_SHAKER = Registry.register(
 			Registry.ITEM,
 			new Identifier("themines", "iron_world_shaker"),
-			new HammerItem(
+			new CrusherItem(
 					IronWorldShakerMaterial.INSTANCE,
 					3,
 					-2.8F,
-					new FabricItemSettings().group(TheMines.TOOLS_ITEM_GROUP).maxCount(1)
+					new FabricItemSettings().group(TheMines.TOOLS_ITEM_GROUP).maxCount(1),
+					1
 			)
 	);
-	public static final HammerItem DIAMOND_WORLD_SHAKER = Registry.register(
+	public static final CrusherItem DIAMOND_WORLD_SHAKER = Registry.register(
 			Registry.ITEM,
 			new Identifier("themines", "diamond_world_shaker"),
-			new HammerItem(
+			new CrusherItem(
 					DiamondWorldShakerMaterial.INSTANCE,
 					3,
 					-2.8F,
-					new FabricItemSettings().group(TheMines.TOOLS_ITEM_GROUP).maxCount(1)
+					new FabricItemSettings().group(TheMines.TOOLS_ITEM_GROUP).maxCount(1),
+					1
 			)
 	);
 
-	public static final AutosmeltItem MOLTEN_PICKAXE = Registry.register(
+	public static final CrusherItem MOLTEN_PICKAXE = Registry.register(
 			Registry.ITEM,
 			new Identifier("themines", "molten_pickaxe"),
-			new AutosmeltItem(
+			new CrusherItem(
 					DiamondWorldShakerMaterial.INSTANCE,
 					3,
 					-2.8F,
@@ -83,8 +86,14 @@ public class TheMines implements ModInitializer {
 
 	public static Enchantment AUTOSMELTENCHANTMENT = Registry.register(
 		Registry.ENCHANTMENT,
-		new Identifier("themines", "autosmelt_enchantment"),
+		new Identifier("themines", "autosmelt"),
 		new AutosmeltEnchantment()
+	);
+
+	public static Enchantment CRUNCHENCHANTMENT = Registry.register(
+			Registry.ENCHANTMENT,
+			new Identifier("themines", "crunch"),
+			new CrunchEnchantment()
 	);
 
 	@Override
