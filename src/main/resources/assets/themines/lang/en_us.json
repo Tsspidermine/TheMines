@@ -5,5 +5,7 @@
   "item.themines.stone_world_shaker": "Stone World Shaker",
   "item.themines.iron_world_shaker": "Iron World Shaker",
   "item.themines.diamond_world_shaker": "Diamond World Shaker",
-  "item.themines.molten_pickaxe": "Molten Pickaxe"
+  "item.themines.molten_pickaxe": "Molten Pickaxe",
+  "enchantment.themines.autosmelt": "Autosmelt",
+  "enchantment.themines.crunch": "Crunch"
 }
