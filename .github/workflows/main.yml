@@ -2,9 +2,9 @@ name: Fabric CI
 
 on:
   push:
-    branches: [ 1.16 ]
+    branches: [ main ]
   pull_request:
-    branches: [ 1.16 ]
+    branches: [ main ]
 
 jobs:
   runTests:
