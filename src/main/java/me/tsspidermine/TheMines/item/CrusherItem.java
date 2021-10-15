@@ -19,14 +19,12 @@ import java.util.Optional;
 public class CrusherItem extends HammerItem {
 
     // This is set in the main class, ignore this value
-    private int breakRadius = 1;
-    private int defaultBreakRadius;
+    public static int breakRadius = 1;
+
 
 
     public CrusherItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings, int breakRadius) {
         super(toolMaterial, attackDamage, attackSpeed, settings, breakRadius);
-        this.breakRadius = breakRadius;
-        defaultBreakRadius = breakRadius;
     }
 
     public CrusherItem(ToolMaterial toolMaterial, int material, float attackDamage, Settings attackSpeed){
@@ -41,6 +39,8 @@ public class CrusherItem extends HammerItem {
 
     @Override
     public BlockProcessor getProcessor(World world, PlayerEntity player, BlockPos pos, ItemStack heldStack) {
+//        breakRadius = EnchantmentHelper.getLevel(TheMines.CRUNCHENCHANTMENT, heldStack) + 1;
+
         if(EnchantmentHelper.getLevel(TheMines.AUTOSMELTENCHANTMENT, heldStack) > 0 || heldStack.isOf(TheMines.MOLTEN_PICKAXE)){
             return (tool, input) -> {
                 Optional<SmeltingRecipe> cookedItem = world.getRecipeManager().getFirstMatch(
@@ -61,16 +61,9 @@ public class CrusherItem extends HammerItem {
     }
 
     @Override
-    public boolean renderOutline(World world, BlockHitResult ray, PlayerEntity player, ItemStack stack){
-        if(player == null)
-            return true;
+    public BlockPos getCenterPosition(World world, PlayerEntity player, BlockHitResult blockHitResult, ItemStack toolStack) {
+        breakRadius = EnchantmentHelper.getLevel(TheMines.CRUNCHENCHANTMENT, toolStack) + 1;
 
-        if(EnchantmentHelper.getLevel(TheMines.CRUNCHENCHANTMENT, player.getMainHandStack()) > 0){
-            breakRadius = EnchantmentHelper.getLevel(TheMines.CRUNCHENCHANTMENT, player.getMainHandStack()) + 1;
-        } else{
-            breakRadius = defaultBreakRadius;
-        }
-
-        return true;
+        return blockHitResult.getBlockPos();
     }
 }
